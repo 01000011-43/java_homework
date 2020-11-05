@@ -21,6 +21,7 @@ public class SumOfMatrix {
                     sum += m[i][j];
                 }
             }
-        }return sum;
+        }
+        return sum;
     }
 }
