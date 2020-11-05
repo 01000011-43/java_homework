@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class wk8_2 {
+public class SumOfMatrix {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         System.out.println("Enter a 4-by-4 matrix row by row:");
@@ -10,7 +10,8 @@ public class wk8_2 {
                 matrix[i][j] = input.nextDouble();
             }
         }
-        System.out.printf("Sum of the elements in the major diagonal is "+sumMajorDiagonal(matrix));
+        input.close();
+        System.out.println("Sum of the elements in the major diagonal is "+sumMajorDiagonal(matrix));
     }
     public static double sumMajorDiagonal(double[][] m){
         double sum = 0.0;

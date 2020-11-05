@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class 6_17DisplayMatrixof0sand1s {
+public class DisplayMatrix617 {
     public static void main(String[] agrs){
         Scanner input = new Scanner(System.in);
         System.out.printf("Enter n:");
@@ -13,7 +13,8 @@ public class 6_17DisplayMatrixof0sand1s {
         for (int i = 0; i < matrix.length; i++){
             for(int j = 0;j < matrix[i].length; j++) {
                 System.out.printf("%d ", (int) (Math.random() * 2));
-            }System.out.print("\n");
+            }
+            System.out.print("\n");
         }
     }
 }

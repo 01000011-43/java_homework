@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class wk7_10 {
+public class SmallestEle7_10{
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         System.out.printf("Enter the length of array:");
@@ -10,8 +10,9 @@ public class wk7_10 {
         for(int i = 0;i < n;i++){
             matrix[i] = input.nextDouble();
         }
-        System.out.printf("smallest index="+indexOfSmallestElement(matrix)+"\n");
-        System.out.printf("smallest num="+matrix[indexOfSmallestElement(matrix)]);
+        input.close();
+        System.out.printf("smallest index = "+indexOfSmallestElement(matrix)+"\n");
+        System.out.println("smallest num = "+matrix[indexOfSmallestElement(matrix)]);
     }
     public static int indexOfSmallestElement(double[] array){
         double min = array[0];

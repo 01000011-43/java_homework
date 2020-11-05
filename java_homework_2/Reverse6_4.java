@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
-public class wk6_4 { //输入一个整数，并输出它的反向数
+public class Reverse6_4{ //输入一个整数，并输出它的反向数
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.printf("Enter an integer:");
         int num = input.nextInt();
         int n = reverse(num);
+        input.close();
         System.out.printf("reverse = %d\n",n);
         System.out.printf("reverse with 0 = ");
         reverse0(num);
