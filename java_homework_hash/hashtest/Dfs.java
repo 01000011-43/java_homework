@@ -45,30 +45,30 @@ public class Dfs{
             File[] fs = dir.listFiles(); //返回一个目录下File对象构成的数组
             try{
                 MessageDigest m = MessageDigest.getInstance("SHA1");
-                for(int i = 0; i < fs.length; i++){
-                    if(fs[i].isFile()){
+                for(int i = 0; i < fs.length; i++){ //目录下第一层遍历
+                    if(fs[i].isFile()){ //文件处理
                         FileInputStream isfl = new FileInputStream(fs[i]);
-                        byte [] flsha = SHA1Checksum(isfl);
+                        byte [] flsha = SHA1Checksum(isfl);//文件hash
                         String result = convertToHexString(flsha);
-                        m.update(result.getBytes());
-                        m.update(fs[i].getName().getBytes());
+                        m.update(result.getBytes());//文件内容对hash更新
+                        m.update(fs[i].getName().getBytes());//文件名对hash更新
                     }
-                    if(fs[i].isDirectory()){
-                        m.update(fs[i].getName().getBytes());
-                        String dir1 = dfs(path + File.separator + fs[i].getName());
-                        m.update(dir1.getBytes());
+                    if(fs[i].isDirectory()){//文件夹处理
+                        m.update(fs[i].getName().getBytes());//文件夹名字hash
+                        String subhash = dfs(path + File.separator + fs[i].getName());//递归dfs子文件夹
+                        m.update(subhash.getBytes());//子文件夹名字hash
                     }
                 }
-                return convertToHexString(m.digest());
+                return convertToHexString(m.digest());//update完的
             }
-            catch(Exception e){
+            catch(Exception e){ //输入路径为文件
                 try{
                     FileInputStream isfl = new FileInputStream(dir);
                     byte[] flsha = SHA1Checksum(isfl);
                     String result = convertToHexString(flsha);
                     return result;
                 }
-                catch(Exception c){
+                catch(Exception c){ //输入路径不存在
                     return "路径不存在";
                 }
             }
